@@ -1,0 +1,9 @@
+.env
+*.nupkg
+
+bin/
+obj/
+.vscode/
+
+Hexarc.AmoCrm.Tests/
+Hexarc.AmoCrm.sln
