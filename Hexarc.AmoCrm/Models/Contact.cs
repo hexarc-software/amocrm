@@ -8,6 +8,9 @@ namespace Hexarc.AmoCrm.Models
         [JsonPropertyName("id")]
         public Int32? Id { get; set; }
 
+        [JsonPropertyName("responsible_user_id")]
+        public Int32? ResponsibleUserId { get; set; }
+
         [JsonPropertyName("name")]
         public String? Name { get; set; }
 
