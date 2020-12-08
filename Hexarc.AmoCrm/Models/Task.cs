@@ -41,7 +41,7 @@ namespace Hexarc.AmoCrm.Models
         [JsonPropertyName("updated_by")]
         public Int32? UpdatedBy { get; set; }
 
-        [JsonPropertyName("created_by")]
+        [JsonPropertyName("created_at")]
         public Int32? CreatedAt { get; set; }
 
         [JsonPropertyName("updated_at")]
