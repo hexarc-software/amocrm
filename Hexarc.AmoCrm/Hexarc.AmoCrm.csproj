@@ -1,13 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <PropertyGroup>
     <PackageId>Hexarc.AmoCrm</PackageId>
-    <Version>0.0.1</Version>
+    <Version>0.0.2</Version>
     <Authors>Max Koverdyaev</Authors>
     <Company>Hexarc Software</Company>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>

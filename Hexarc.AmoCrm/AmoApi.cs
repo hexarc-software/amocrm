@@ -8,13 +8,15 @@ namespace Hexarc.AmoCrm
 {
     public sealed class AmoApi
     {
-        public ContactsController Contacts { get; }
+        public ContactController Contacts { get; }
 
-        public LeadsController Leads { get; }
+        public LeadController Leads { get; }
 
-        public LinksController Links { get; }
+        public LinkController Links { get; }
 
-        public NotesController Notes { get; }
+        public NoteController Notes { get; } 
+
+        public TaskController Tasks { get; } 
 
         public AmoApi(HttpClient httpClient, Uri baseUri, Credentials credentials)
         {
@@ -22,10 +24,11 @@ namespace Hexarc.AmoCrm
             this.BaseUri = baseUri;
             this.Credentials = credentials;
 
-            this.Contacts = new ContactsController(this);
-            this.Leads = new LeadsController(this);
-            this.Links = new LinksController(this);
-            this.Notes = new NotesController(this);
+            this.Contacts = new ContactController(this);
+            this.Leads = new LeadController(this);
+            this.Links = new LinkController(this);
+            this.Notes = new NoteController(this);
+            this.Tasks = new TaskController(this);
         }
 
         internal JsonSerializerOptions JsonSerializerOptions { get; } = 
