@@ -1,4 +1,5 @@
 using System;
+using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Text.Json;
@@ -39,7 +40,7 @@ namespace Hexarc.AmoCrm.Controllers
             };
             var response = await this.HttpClient.SendAsync(message);
             var raw = await response.Content.ReadAsStringAsync();
-            if (!response.IsSuccessStatusCode) throw new AmoException(response.StatusCode, raw);
+            if (!this.ValidateResponse(response)) throw new AmoException(response.StatusCode, raw);
             return JsonSerializer.Deserialize<TResponse>(raw, this.JsonSerializerOptions);
         }
 
@@ -53,7 +54,7 @@ namespace Hexarc.AmoCrm.Controllers
             };
             var response = await this.HttpClient.SendAsync(message);
             var raw = await response.Content.ReadAsStringAsync();
-            if (!response.IsSuccessStatusCode) throw new AmoException(response.StatusCode, raw);
+            if (!this.ValidateResponse(response)) throw new AmoException(response.StatusCode, raw);
             return JsonSerializer.Deserialize<TResponse>(raw, this.JsonSerializerOptions);
         }
 
@@ -61,5 +62,8 @@ namespace Hexarc.AmoCrm.Controllers
         {
             return new Uri(this.BaseUri, $"{ApiPath}{methodPath}{this.Credentials.Query}");
         }
+
+        private Boolean ValidateResponse(HttpResponseMessage response) =>
+            response.IsSuccessStatusCode && response.StatusCode != HttpStatusCode.NoContent;
     }
 }

@@ -1,6 +1,6 @@
 #!/bin/sh
 source .env
-PACKAGE="Hexarc.AmoCrm.0.0.4.nupkg"
+PACKAGE="Hexarc.AmoCrm.0.0.5.nupkg"
 
 if [ -z $NUGET_API_KEY ]; then
   echo "No NUGET_API_KEY found in .env file";

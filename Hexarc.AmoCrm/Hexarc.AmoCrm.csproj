@@ -7,7 +7,7 @@
 
   <PropertyGroup>
     <PackageId>Hexarc.AmoCrm</PackageId>
-    <Version>0.0.4</Version>
+    <Version>0.0.5</Version>
     <Authors>Max Koverdyaev</Authors>
     <Company>Hexarc Software</Company>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
