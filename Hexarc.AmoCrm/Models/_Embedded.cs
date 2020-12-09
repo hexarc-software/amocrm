@@ -12,5 +12,8 @@ namespace Hexarc.AmoCrm.Models
 
         [JsonPropertyName("links")]
         public Link[]? Links { get; set; }
+
+        [JsonPropertyName("tasks")]
+        public Task[]? Tasks { get; set; }
     }
 }
