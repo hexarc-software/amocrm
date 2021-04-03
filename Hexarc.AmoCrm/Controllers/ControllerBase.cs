@@ -22,12 +22,10 @@ namespace Hexarc.AmoCrm.Controllers
 
         private JsonSerializerOptions JsonSerializerOptions { get => this.Api.JsonSerializerOptions; }
 
-        internal ControllerBase(AmoApi api)
-        {
+        internal ControllerBase(AmoApi api) =>
             this.Api = api;
-        }
 
-        protected internal async Task<TResponse> PerformRequest<TRequest, TResponse>(String methodPath, HttpMethod method, TRequest request)
+        protected async Task<TResponse> PerformRequest<TRequest, TResponse>(String methodPath, HttpMethod method, TRequest request)
         {
             var uri = this.ToMethodUri(methodPath);
             var data = JsonSerializer.Serialize(request, this.JsonSerializerOptions);
@@ -41,10 +39,11 @@ namespace Hexarc.AmoCrm.Controllers
             var response = await this.HttpClient.SendAsync(message);
             var raw = await response.Content.ReadAsStringAsync();
             if (!this.ValidateResponse(response)) throw new AmoException(response.StatusCode, raw);
-            return JsonSerializer.Deserialize<TResponse>(raw, this.JsonSerializerOptions);
+            return JsonSerializer.Deserialize<TResponse>(raw, this.JsonSerializerOptions) ??
+                   throw new NullReferenceException();
         }
 
-        protected internal async Task<TResponse> PerformRequest<TResponse>(String methodPath, HttpMethod method)
+        protected async Task<TResponse> PerformRequest<TResponse>(String methodPath, HttpMethod method)
         {
             var uri = this.ToMethodUri(methodPath);
             var message = new HttpRequestMessage
@@ -55,13 +54,12 @@ namespace Hexarc.AmoCrm.Controllers
             var response = await this.HttpClient.SendAsync(message);
             var raw = await response.Content.ReadAsStringAsync();
             if (!this.ValidateResponse(response)) throw new AmoException(response.StatusCode, raw);
-            return JsonSerializer.Deserialize<TResponse>(raw, this.JsonSerializerOptions);
+            return JsonSerializer.Deserialize<TResponse>(raw, this.JsonSerializerOptions) ??
+                   throw new NullReferenceException();
         }
 
-        private Uri ToMethodUri(String methodPath)
-        {
-            return new Uri(this.BaseUri, $"{ApiPath}{methodPath}{this.Credentials.Query}");
-        }
+        private Uri ToMethodUri(String methodPath) =>
+            new(this.BaseUri, $"{ApiPath}{methodPath}{this.Credentials.Query}");
 
         private Boolean ValidateResponse(HttpResponseMessage response) =>
             response.IsSuccessStatusCode && response.StatusCode != HttpStatusCode.NoContent;

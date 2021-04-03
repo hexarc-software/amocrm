@@ -13,7 +13,8 @@ namespace Hexarc.AmoCrm.Utils
             {
                 element.WriteTo(writer);
             }
-            return JsonSerializer.Deserialize<T>(bufferWriter.WrittenSpan, options);
+            return JsonSerializer.Deserialize<T>(bufferWriter.WrittenSpan, options) ??
+                   throw new NullReferenceException();
         }
 
         public static T ToObject<T>(this JsonDocument document, JsonSerializerOptions? options = null)

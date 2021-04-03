@@ -1,6 +1,6 @@
 #!/bin/sh
 source .env
-PACKAGE="Hexarc.AmoCrm.0.0.6.nupkg"
+PACKAGE="Hexarc.AmoCrm.1.0.0.nupkg"
 
 if [ -z $NUGET_API_KEY ]; then
   echo "No NUGET_API_KEY found in .env file";
@@ -8,15 +8,15 @@ else
   echo "Current NUGET_API_KEY =$NUGET_API_KEY";
   read -p "Do you want to publish: $PACKAGE? Yes[Y]/No[N]" yn
   case $yn in
-    [Yy]* ) 
+    [Yy]* )
       echo "Publishing";
       dotnet nuget push $PACKAGE -k $NUGET_API_KEY -s https://api.nuget.org/v3/index.json
       break;;
-    [Nn]* ) 
-      echo "Canceled"; 
+    [Nn]* )
+      echo "Canceled";
       break;;
-    * ) 
-      echo "Invalid options"; 
+    * )
+      echo "Invalid options";
       break;;
   esac
 fi;

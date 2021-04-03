@@ -7,10 +7,25 @@
 
   <PropertyGroup>
     <PackageId>Hexarc.AmoCrm</PackageId>
-    <Version>0.0.6</Version>
+    <Version>1.0.0</Version>
     <Authors>Max Koverdyaev</Authors>
     <Company>Hexarc Software</Company>
+    <PackageTags>Amo;Crm;Api;Client;DotNet</PackageTags>
+    <PackageProjectUrl>https://github.com/hexarc-software/amocrm</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/hexarc-software/amocrm</RepositoryUrl>
+    <Description>
+      .NET client for AMO CRM API.
+    </Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageIcon>hexarc.png</PackageIcon>
+    <PackageIconFullPath>$(MSBuildThisFileDirectory)../hexarc.png</PackageIconFullPath>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="$(PackageIconFullPath)">
+      <PackagePath>\</PackagePath>
+      <Pack>true</Pack>
+    </None>
+  </ItemGroup>
 
 </Project>

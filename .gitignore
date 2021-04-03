@@ -4,6 +4,7 @@
 bin/
 obj/
 .vscode/
+.DS_Store
 
 Hexarc.AmoCrm.Tests/
 Hexarc.AmoCrm.sln
