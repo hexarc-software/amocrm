@@ -5,6 +5,7 @@ bin/
 obj/
 .vscode/
 .DS_Store
+aws.xml
 
 Hexarc.AmoCrm.Tests/
 Hexarc.AmoCrm.sln

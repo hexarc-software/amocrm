@@ -4,6 +4,6 @@ namespace Hexarc.AmoCrm.Models
 {
     public static class NoteType
     {
-        public static readonly String Common = "common";
+        public const String Common = "common";
     }
 }

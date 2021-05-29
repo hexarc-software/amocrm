@@ -6,21 +6,21 @@ namespace Hexarc.AmoCrm.Models
     public sealed class _Links
     {
         [JsonPropertyName("self")]
-        public _Link Self { get; set; } = default!;
+        public _Link Self { get; init; } = default!;
 
         [JsonPropertyName("next")]
-        public _Link? Next { get; set; }
+        public _Link? Next { get; init; }
 
         [JsonPropertyName("prev")]
-        public _Link? Prev { get; set; }
+        public _Link? Prev { get; init; }
 
         [JsonPropertyName("first")]
-        public _Link? First { get; set; }
+        public _Link? First { get; init; }
     }
 
     public sealed class _Link
     {
         [JsonPropertyName("href")]
-        public String Href { get; set; } = default!;
+        public String Href { get; init; } = default!;
     }
 }

@@ -8,7 +8,7 @@ namespace Hexarc.AmoCrm.Models
 
         public String UserHash { get; }
 
-        public String Query { get => $"?USER_LOGIN={this.UserLogin}&USER_HASH={this.UserHash}"; }
+        public String Query => $"?USER_LOGIN={this.UserLogin}&USER_HASH={this.UserHash}";
 
         public Credentials(String userLogin, String userHash)
         {

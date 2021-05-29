@@ -10,25 +10,17 @@ namespace Hexarc.AmoCrm.Controllers
     {
         internal ContactController(AmoApi api) : base(api) { }
 
-        public async Task<Response> List()
-        {
-            return await this.PerformRequest<Response>("contacts", HttpMethod.Get);
-        }
+        public async Task<Response> List() =>
+            await this.PerformRequest<Response>("contacts", HttpMethod.Get);
 
-        public async Task<Contact> Get(Int32 id)
-        {
-            return await this.PerformRequest<Contact>($"contacts/{id}", HttpMethod.Get);
-        }
+        public async Task<Contact> Get(Int32 id) =>
+            await this.PerformRequest<Contact>($"contacts/{id}", HttpMethod.Get);
 
-        public async Task<Response> Add(IEnumerable<Contact> contacts)
-        {
-            return await this.PerformRequest<IEnumerable<Contact>, Response>("contacts", HttpMethod.Post, contacts);
-        }
+        public async Task<Response> Add(IEnumerable<Contact> contacts) =>
+            await this.PerformRequest<IEnumerable<Contact>, Response>("contacts", HttpMethod.Post, contacts);
 
-        public async Task<Response> Add(Contact contact)
-        {
-            return await this.Add(new[] { contact });
-        }
+        public async Task<Response> Add(Contact contact) =>
+            await this.Add(new[] { contact });
 
         public async Task<Contact> Edit(Contact contact)
         {
@@ -36,9 +28,7 @@ namespace Hexarc.AmoCrm.Controllers
             return await this.PerformRequest<Contact, Contact>(methodPath, HttpMethod.Patch, contact);
         }
 
-        public async Task<Response> Edit(IEnumerable<Contact> contacts)
-        {
-            return await this.PerformRequest<IEnumerable<Contact>, Response>("contacts", HttpMethod.Patch, contacts);
-        }
+        public async Task<Response> Edit(IEnumerable<Contact> contacts) =>
+            await this.PerformRequest<IEnumerable<Contact>, Response>("contacts", HttpMethod.Patch, contacts);
     }
 }

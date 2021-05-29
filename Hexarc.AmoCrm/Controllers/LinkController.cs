@@ -16,10 +16,8 @@ namespace Hexarc.AmoCrm.Controllers
             return await this.PerformRequest<Response>(methodPath, HttpMethod.Get);
         }
 
-        public async Task<Response> Link(String entityType, Int32 id, Link link)
-        {
-            return await this.Link(entityType, id, new[] { link });
-        }
+        public async Task<Response> Link(String entityType, Int32 id, Link link) =>
+            await this.Link(entityType, id, new[] { link });
 
         public async Task<Response> Link(String entityType, Int32 id, IEnumerable<Link> links)
         {

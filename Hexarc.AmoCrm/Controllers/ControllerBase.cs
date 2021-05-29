@@ -12,15 +12,15 @@ namespace Hexarc.AmoCrm.Controllers
     {
         private AmoApi Api { get; }
 
-        private HttpClient HttpClient { get => this.Api.HttpClient; }
+        private HttpClient HttpClient => this.Api.HttpClient;
 
-        private Uri BaseUri { get => this.Api.BaseUri; }
+        private Uri BaseUri => this.Api.BaseUri;
 
-        private String ApiPath { get => this.Api.ApiPath; }
+        private String ApiPath => this.Api.ApiPath;
 
-        private Credentials Credentials { get => this.Api.Credentials; }
+        private Credentials Credentials => this.Api.Credentials;
 
-        private JsonSerializerOptions JsonSerializerOptions { get => this.Api.JsonSerializerOptions; }
+        private JsonSerializerOptions JsonSerializerOptions => this.Api.JsonSerializerOptions;
 
         internal ControllerBase(AmoApi api) =>
             this.Api = api;

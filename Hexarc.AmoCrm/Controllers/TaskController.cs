@@ -10,24 +10,16 @@ namespace Hexarc.AmoCrm.Controllers
     {
         internal TaskController(AmoApi api) : base(api) { }
 
-        public async Task<Models.Task> Get(Int32 id)
-        {
-            return await this.PerformRequest<Models.Task>($"tasks/{id}", HttpMethod.Get);
-        }
+        public async Task<Models.Task> Get(Int32 id) =>
+            await this.PerformRequest<Models.Task>($"tasks/{id}", HttpMethod.Get);
 
-        public async Task<Response> Add(IEnumerable<Models.Task> tasks)
-        {
-            return await this.PerformRequest<IEnumerable<Models.Task>, Response>("tasks", HttpMethod.Post, tasks);
-        }
+        public async Task<Response> Add(IEnumerable<Models.Task> tasks) =>
+            await this.PerformRequest<IEnumerable<Models.Task>, Response>("tasks", HttpMethod.Post, tasks);
 
-        public async Task<Response> Add(Models.Task task)
-        {
-            return await this.Add(new [] { task });
-        }
+        public async Task<Response> Add(Models.Task task) =>
+            await this.Add(new[] { task });
 
-        public async Task<Response> Edit(IEnumerable<Models.Task> tasks)
-        {
-            return await this.PerformRequest<IEnumerable<Models.Task>, Response>("tasks", HttpMethod.Patch, tasks);
-        }
+        public async Task<Response> Edit(IEnumerable<Models.Task> tasks) =>
+            await this.PerformRequest<IEnumerable<Models.Task>, Response>("tasks", HttpMethod.Patch, tasks);
     }
 }

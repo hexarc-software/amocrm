@@ -4,12 +4,12 @@ namespace Hexarc.AmoCrm.Models
 {
     public static class EntityType
     {
-        public static readonly String Leads = "leads";
+        public const String Leads = "leads";
 
-        public static readonly String Contacts = "contacts";
+        public const String Contacts = "contacts";
 
-        public static readonly String Companies = "companies";
+        public const String Companies = "companies";
 
-        public static readonly String Customers = "customers";
+        public const String Customers = "customers";
     }
 }

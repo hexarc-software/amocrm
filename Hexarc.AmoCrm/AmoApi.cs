@@ -14,9 +14,9 @@ namespace Hexarc.AmoCrm
 
         public LinkController Links { get; }
 
-        public NoteController Notes { get; } 
+        public NoteController Notes { get; }
 
-        public TaskController Tasks { get; } 
+        public TaskController Tasks { get; }
 
         public AmoApi(HttpClient httpClient, Uri baseUri, Credentials credentials)
         {
@@ -31,14 +31,14 @@ namespace Hexarc.AmoCrm
             this.Tasks = new TaskController(this);
         }
 
-        internal JsonSerializerOptions JsonSerializerOptions { get; } = 
-            new JsonSerializerOptions { IgnoreNullValues = true };
+        internal JsonSerializerOptions JsonSerializerOptions { get; } =
+            new() { IgnoreNullValues = true };
 
         internal HttpClient HttpClient { get; }
 
         internal Uri BaseUri { get; }
 
-        internal String ApiPath { get; } = "api/v4/";
+        internal String ApiPath => "api/v4/";
 
         internal Credentials Credentials { get; }
     }
